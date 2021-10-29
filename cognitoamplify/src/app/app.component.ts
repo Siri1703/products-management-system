@@ -1,0 +1,28 @@
+import { Component,OnChanges,OnInit } from '@angular/core';
+import { Auth } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit{
+  title = 'cognitoamplify';
+   ngOnInit(){
+  
+      
+  }
+
+  async sign(){
+    //window.location.assign("https://login.microsoftonline.com/853aff1a-9951-4abe-9271-758a7f1416ea/saml2?SAMLRequest=fZLLbtswFET3%2FQqBe0oirZcJS4HRIECKdNE8uugmuJauHBYSqfJSgduvLy3FRbPJksTMHGKGu6vT%0AOESv6EhbUzMRpyxC09pOm2PNnh5veMWumk87gnGQk9rP%2FsXc468ZyUd7InQ%2B%2BD5bQ%2FOI7gHdq27x%0A6f6uZi%2FeT6SSBE8wTgPywR61iSH445k4AnkuYhjhjw20o9Hexq0dk4WT6G5ySFOIRRZdB5Y24JcH%0AXmLXuFG3zpLtvTWDNrgkVPkG%2Bl4A325zwTM4IN%2FKUvAyr6DsRSYKhBXDotvrmj3nVVfAYVPwDqEK%0Ahgw5yKrnUOTloe0PsoQuSIlmvDXkwfiayVQKLlIuq8c0V5tUZVksq%2FQHi75fqpTnKkO5htRaXs1m%0AZ5QF0qQMjEjKt%2Bph%2F%2FVOBamanPW2tQNr1q7VAnTRjXUj%2BI%2B95xvd8X6RKjRe%2B9%2Fv2B%2Fb4bIja86y%0AdRT1toqiSf0b7Pnbad5%2FET8L3CX%2Fv7J5O77%2FIM1f&RelayState=ZXlKMWMyVnlVRzl2YkVsa0lqb2lkWE10WldGemRDMHhYMUY0ZFVGS01XbzJaU0lzSW5CeWIzWnBaR1Z5VG1GdFpTSTZJbVY0WVcxd2JHVXRZWEJ3SWl3aVkyeHBaVzUwU1dRaU9pSXpjMnhtYkRkbGFURnlkbkV6Y1RCeVkyMDJabVprT0RJNWJ5SXNJbkpsWkdseVpXTjBWVkpKSWpvaWFIUjBjRG92TDJ4dlkyRnNhRzl6ZERvME1qQXdMeUlzSW5KbGMzQnZibk5sVkhsd1pTSTZJbU52WkdVaUxDSndjbTkyYVdSbGNsUjVjR1VpT2lKVFFVMU1JaXdpYzJOdmNHVnpJanBiSW1GM2N5NWpiMmR1YVhSdkxuTnBaMjVwYmk1MWMyVnlMbUZrYldsdUlpd2laVzFoYVd3aUxDSnZjR1Z1YVdRaUxDSndhRzl1WlNJc0luQnliMlpwYkdVaVhTd2ljM1JoZEdVaU9tNTFiR3dzSW1OdlpHVkRhR0ZzYkdWdVoyVWlPbTUxYkd3c0ltTnZaR1ZEYUdGc2JHVnVaMlZOWlhSb2IyUWlPbTUxYkd3c0ltNXZibU5sSWpvaVgzY3ROa3cyWTBod1JqTmtPRk0xWjFOT1IwYzNNSFJDUmxGVWNFOHhSVzlHYnpWVVZXOXNkbE5hVGpsaGVqUjJNVUZCWjJZdFp6UkRWblYwUWtFd2FuRkxMV1YzV0VGeU4wWllaRk56Tm5CSmMxQnlRMloxWjFaV1VqZFdVVFkxUTBoRE9FMUpXWE5SV1dKU1lWVm9Na3B0ZDFGbGFGaExURzh4Yms5bWJucDNPRE53VEdOYVdXSTJjRFZzYlV4WFJ6VldTRVpZTUdKaU5USm1lSHBVTFVwd1lYQk9jVFV4TkdGWklpd2ljMlZ5ZG1WeVNHOXpkRkJ2Y25RaU9pSmxlR0Z0Y0d4bExXeHZaMmx1TG1GMWRHZ3VkWE10WldGemRDMHhMbUZ0WVhwdmJtTnZaMjVwZEc4dVkyOXRJaXdpWTNKbFlYUnBiMjVVYVcxbFUyVmpiMjVrY3lJNk1UWXpOVE01T1RBME5Dd2ljMlZ6YzJsdmJpSTZiblZzYkN3aWRYTmxja0YwZEhKcFluVjBaWE1pT201MWJHd3NJbk4wWVhSbFJtOXlUR2x1YTJsdVoxTmxjM05wYjI0aU9tWmhiSE5sZlE9PTo0eUlHSXorQXhXRnhZV2hIOTJORHRsUm01aXorQjhPS0JoazRnS2JMalhnPToz")
+    await Auth.federatedSignIn().then(data=>{
+      console.log(data)
+   })
+
+  }
+  async signout(){
+    await Auth.signOut()
+  }
+}
+  
+

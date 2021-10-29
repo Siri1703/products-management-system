@@ -1,0 +1,12 @@
+projects:
+  amplifytest:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - amplifytest
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: angular
+        generatedFileName: amplifytest
+        docsFilePath: .
